@@ -3,11 +3,13 @@
 def main():
     i = []
     x = 0
-    xlist=[]
+    xlist=set()
     flag = True
 
     with open('input.sdx', 'r+') as ifile:
         for line in ifile: i.append(int(line))
+
+    print(i)
 
     while flag:
         for val in i: 
@@ -16,7 +18,7 @@ def main():
                 flag = False 
                 break
             else:
-                xlist.append(x)
+                xlist.add(x)
                 
 
     print(x)
