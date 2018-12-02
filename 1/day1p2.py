@@ -9,8 +9,6 @@ def main():
     with open('input.sdx', 'r+') as ifile:
         for line in ifile: i.append(int(line))
 
-    print(i)
-
     while flag:
         for val in i: 
             x += val
@@ -20,7 +18,6 @@ def main():
             else:
                 xlist.add(x)
                 
-
     print(x)
 
 if __name__ == '__main__':
