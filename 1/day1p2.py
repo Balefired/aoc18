@@ -1,18 +1,23 @@
 #!/usr/bin/python3 -tt
 
 def main():
+    i = []
     x = 0
     xlist=[]
     flag = True
+
+    with open('input.sdx', 'r+') as ifile:
+        for line in ifile: i.append(int(line))
+
     while flag:
-        with open('input.sdx', 'r+') as ifile:
-            for line in ifile: 
-                x += int(line)
-                if x not in xlist: 
-                    xlist.append(x)
-                elif x in xlist:
-                    flag = False 
-                    break
+        for val in i: 
+            x += val
+            if x in xlist: 
+                flag = False 
+                break
+            else:
+                xlist.append(x)
+                
 
     print(x)
 
