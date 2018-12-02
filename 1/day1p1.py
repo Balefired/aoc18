@@ -7,4 +7,5 @@ def main():
     print(x)
 
 if __name__ == '__main__':
-    main()
+    import timeit
+    print(timeit.timeit('main()', setup='from __main__ import main', number=1))
