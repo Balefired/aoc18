@@ -21,7 +21,14 @@ def main():
         cloth = pd.DataFrame(0,index=np.arange(df['max len'].max()+1), columns=np.arange(df['max width'].max()+1))
         for row in df.itertuples():
             cloth.loc[row.top:(row.top+row.tall-1),row.left:(row.left+row.wide-1)]+=1
+        print('answer part 1')
         print(cloth[cloth>1].count().sum())
+        for row in df.itertuples():
+            t = cloth.loc[row.top:(row.top+row.tall-1),row.left:(row.left+row.wide-1)]
+            if t.eq(1).all().all():
+                print('answer part 2')
+                print(row.id)
+
         
             
 
