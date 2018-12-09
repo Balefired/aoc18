@@ -23,26 +23,12 @@ def main():
             col = row.name
             for i,v in row.iteritems():
                 check = cdist([(i,col)],coords,'cityblock')[0]
-                if np.where(check == check.min())[0].size == 1:
-                    df[i][col] = np.argmin(check)
+                if sum(check) < 10000:
+                    df[i][col] = 1
                 else:
-                    df[i][col] = -1
+                    df[i][col] = 0
 
-        print(coords)
-        print(df)
-        counts = dict(Counter(list(df.values.flatten())))
-        counts.pop(-1, None)
-        print(counts)
-        print(df[0].values)
-        print(maxX)
-        poplist = []
-        for key in counts.keys():
-            if key in df[0].values or key in df.loc[0].values or key in df[maxX].values or key in df.loc[maxY].values:
-                poplist.append(key)
-        for val in poplist:
-            counts.pop(val,None)
-        print(counts)
-        print(max(counts.items(), key=operator.itemgetter(1)))
+        print(df.values.sum())
 
 
         
